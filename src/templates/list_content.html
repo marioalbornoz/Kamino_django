@@ -1,0 +1,10 @@
+{% if object_list %}
+{% for post in object_list %}
+    <ul>
+    <li>{{post.content}}</li>
+    </ul>
+{% endfor %}
+{% else %}
+<h2>No existe contenido registrado</h2>
+{% endif %}
+
