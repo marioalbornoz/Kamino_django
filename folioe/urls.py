@@ -20,3 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("src.hojadevida.urls"))
 ]
+
+admin.site.site_header = 'FolioE UTEM'

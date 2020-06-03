@@ -22,3 +22,6 @@ class Content_create(CreateView):
 class Content_list(ListView):
     model = Curriculum
     template_name = 'list_content.html'
+
+    def get_queryset(self, *args, **kwargs):
+        return Curriculum.objects.filter(user=self.request.user)
