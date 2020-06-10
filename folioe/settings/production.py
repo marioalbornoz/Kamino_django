@@ -3,7 +3,7 @@ from .base import *
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://folioutem.herokuapp.com/']
+ALLOWED_HOSTS = ['folioutem.herokuapp.com']
 
 
 # Database
