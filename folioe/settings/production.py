@@ -16,6 +16,6 @@ DATABASES = {
     }
 }
 
-STATICFILES_DIRS = (BASE_DIR, 'static')
 STATIC_URL = '/static/'
-LOGIN_REDIRECT_URL = reverse_lazy('curriculum_module:home')
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'src/static'),)
