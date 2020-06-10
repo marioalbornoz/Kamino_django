@@ -15,10 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView, logout_then_login
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("src.hojadevida.urls"))
+    path('', include("src.hojadevida.urls")),
+    path('accounts/login/',LoginView.as_view(template_name= 'registration/login.html'), name = 'login'),
+    path('logout/',logout_then_login, name = 'logout'),
 ]
 
 admin.site.site_header = 'FolioE UTEM'

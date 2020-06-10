@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from src.hojadevida.models import Curriculum
-from django.http import HttpResponse
+from django.http import HttpResponse, request, JsonResponse
 from django.views.generic import CreateView, ListView
 from src.hojadevida.forms import CurriculumForms
 from django.urls import reverse_lazy
+from django.contrib.auth.models import User
+
+from django.contrib import admin
 
 # Create your views here.
 
@@ -19,9 +22,16 @@ class Content_create(CreateView):
     template_name = 'form.html'
     success_url = reverse_lazy('curriculum_module:listar_contenido')
 
+
 class Content_list(ListView):
     model = Curriculum
     template_name = 'list_content.html'
 
-    def get_queryset(self, *args, **kwargs):
-        return Curriculum.objects.filter(user=self.request.user)
+def content_list_view(request, *args, **kwargs):
+    qs = Curriculum.objects.all()
+    notebook_list = [{"id": x.id, "user":x.user , "content": x.content, "created" :x.created, "updated": x.updated} for x in qs]
+    data = {
+        'isUser': True,
+        'response': notebook_list
+    }
+    return JsonResponse(data)
