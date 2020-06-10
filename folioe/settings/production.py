@@ -15,7 +15,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
-STATIC_URL = 'src/static/'
-
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'src/static'),)
+STATIC_ROOT = 'src/static/'
+STATIC_URL = 'static'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
