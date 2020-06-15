@@ -29,9 +29,9 @@ class Content_list(ListView):
 
 def content_list_view(request, *args, **kwargs):
     qs = Curriculum.objects.all()
-    notebook_list = [{"id": x.id, "user":x.user , "content": x.content, "created" :x.created, "updated": x.updated} for x in qs]
+    notebook_list = [{"id": x.id, "content": x.content, "created" :x.created, "updated": x.updated} for x in qs]
     data = {
-        'isUser': True,
+        'isUser': False,
         'response': notebook_list
     }
     return JsonResponse(data)
