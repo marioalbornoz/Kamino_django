@@ -56,7 +56,7 @@ def content_list_view(request, *args, **kwargs):
         print("you are not admin")
         user_model_id = request.user.id
         qs = Curriculum.objects.filter(user_id = user_model_id)
-        notebook_list = [{"content_id": x.id, "content": x.content, "created" :x.created, "updated": x.updated} for x in qs]
+        notebook_list = [{"content_id": x.id, "content": x.content, "user_id":x.user_id ,"created" :x.created, "updated": x.updated} for x in qs]
         data = {
             'isUser': False,
             'response': notebook_list
