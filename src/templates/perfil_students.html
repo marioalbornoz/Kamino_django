@@ -1,7 +1,13 @@
 {%  extends 'base.html'  %}
 {% load static %}
 {% block content %}
+    <p>Perfil del Alumno {{obj.nombres|upper}} {{obj.apellidos|upper}}</p>
+    <p>Rut: {{obj.rut}}</p>
 
-   {{obj.nombres}} {{obj.apellidos}}
-
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="" id="">
+        <button type="">Enviar</button>
+    </form>
 {% endblock content %}
+
