@@ -20,7 +20,8 @@ from django.contrib.auth.views import LoginView, PasswordResetView, PasswordRese
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("src.hojadevida.urls")),
+    path('content', include("src.hojadevida.urls")),
+    path('', include("src.alumnos.urls")),
     path('accounts/login/',LoginView.as_view(template_name= 'registration/login.html'), name = 'login'),
     path('logout/',logout_then_login, name = 'logout'),
 ]
