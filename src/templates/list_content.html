@@ -12,15 +12,4 @@
     <h2>No existe contenido registrado</h2>
     {% endif %}
 
-    <div class="row text-center mb-2">
-        <div class="col-md-4 mx-auto col-10">
-            <form method="POST" action="{% url 'curriculum_module:crear_contenido' %}" class="form" id="formTweetInput">
-                {% csrf_token %}
-                <input type="hidden" name="next" value="/" />
-                <textarea required="" name="content" placeholder="Your content" class="form-control mb-2"></textarea>
-                <button type="submit" class="btn btn-primary">Save</button>
-            </form>
-        </div>
-    </div>
-
 {% endblock content %}

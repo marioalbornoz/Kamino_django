@@ -20,7 +20,6 @@ def content_create(request):
     if request.method == 'POST':
         form = request.POST.copy()
         content = form.get('content')
-        print(content)
         Curriculum.objects.create(content = content, user_id = request.user.id)
         return redirect('curriculum_module:listar_contenido')
     return render(request, 'form.html', context = {"form":form})
@@ -46,7 +45,7 @@ def content_list_view(request, *args, **kwargs):
     if request.user.id == 1:
         print("you are admin")
         qs = Curriculum.objects.all()
-        notebook_list = [{"content_id": x.id, "content": x.content,"user_id":x.user_id , "created" :x.created, "updated": x.updated} for x in qs]
+        notebook_list = [{"alumno_id":x.student.id ,"content_id": x.id, "content": x.content,"user_id":x.user_id , "created" :x.created, "updated": x.updated} for x in qs]
         data = {
             'isUser': False,
             'response': notebook_list
@@ -56,7 +55,7 @@ def content_list_view(request, *args, **kwargs):
         print("you are not admin")
         user_model_id = request.user.id
         qs = Curriculum.objects.filter(user_id = user_model_id)
-        notebook_list = [{"content_id": x.id, "content": x.content, "user_id":x.user_id ,"created" :x.created, "updated": x.updated} for x in qs]
+        notebook_list = [{'Alumno_id':x.student.id ,"content_id": x.id, "content": x.content, "user_id":x.user_id ,"created" :x.created, "updated": x.updated} for x in qs]
         data = {
             'isUser': False,
             'response': notebook_list

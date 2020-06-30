@@ -3,11 +3,28 @@
 {% block content %}
     <p>Perfil del Alumno {{obj.nombres|upper}} {{obj.apellidos|upper}}</p>
     <p>Rut: {{obj.rut}}</p>
-
-    <form method="post">
-        {% csrf_token %}
-        <input type="text" name="" id="">
-        <button type="">Enviar</button>
-    </form>
+    <p>id: {{obj.id}}</p>
+ 
+    {% if obj1 %}
+        {% for post in obj1 %}
+            <ul>
+            <li>{{post.content}}</li>
+            </ul>
+        {% endfor %}
+    {% else %}
+        No existe contenido registrado
+    {% endif %}
+    
+<div class="row text-center mb-2">
+    <div class="col-md-4 mx-auto col-10">
+        <form method="POST" action="{% url 'alumno:agregar' obj.id %}" class="form" id="formTweetInput">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="/" />
+            <textarea required="" name="content" placeholder="Your content" class="form-control mb-2"></textarea>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
 {% endblock content %}
+
 
