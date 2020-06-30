@@ -39,6 +39,7 @@ def content_create(request):
 
 class Content_list(ListView):
     model = Curriculum
+    ordering = ['-created']
     template_name = 'list_content.html'
 
 def content_list_view(request, *args, **kwargs):

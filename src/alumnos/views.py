@@ -17,8 +17,9 @@ class PerfilStudents(DetailView):
     template_name = 'perfil_students.html'
 
     def get_context_data(self, **kwargs):
+        print("mi pk es ",kwargs['object'].id)
         context = super(PerfilStudents, self).get_context_data(**kwargs)
-        context['obj1'] = Curriculum.objects.all()
+        context['obj1'] = Curriculum.objects.filter(student_id = kwargs['object'].id)
         print(" el contexto es ",context)
         return context
     def get_queryset(self):
