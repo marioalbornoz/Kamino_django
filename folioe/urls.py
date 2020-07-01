@@ -23,7 +23,7 @@ urlpatterns = [
     path('content/', include("src.hojadevida.urls")),
     path('', include("src.alumnos.urls")),
     path('accounts/login/',LoginView.as_view(template_name= 'registration/login.html'), name = 'login'),
-    path('logout/',logout_then_login, name = 'logout'),
+    path('admin/logout/',logout_then_login, name = 'logout'),
 ]
 
 admin.site.site_header = 'FolioE UTEM'
