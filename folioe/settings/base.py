@@ -101,4 +101,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-LOGIN_REDIRECT_URL = reverse_lazy('curriculum_module:home')
+LOGIN_REDIRECT_URL = reverse_lazy('alumno:lista')
+LOGOUT_REDIRECT_URL = 'admin/logout/'

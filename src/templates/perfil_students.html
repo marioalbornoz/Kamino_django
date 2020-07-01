@@ -1,20 +1,37 @@
 {%  extends 'base.html'  %}
 {% load static %}
 {% block content %}
-    <p>Perfil del Alumno {{obj.nombres|upper}} {{obj.apellidos|upper}}</p>
-    <p>Rut: {{obj.rut}}</p>
-    <p>id: {{obj.id}}</p>
- 
+    <div class="row">
+        <div class="col m-4">
+            <h5>Perfil del Alumno </h5>
+        </div>
+    </div>
+    <div class="media ml-5">
+        <img class="align-self-start mr-3 mb-4"
+            src="https://linguisticauprrp.files.wordpress.com/2018/11/perfil-genc3a9rico.png" width="140px" height="140px">
+        <div class="media-body">
+            <h6 class="mt-0">{{obj.nombres|upper}} {{obj.apellidos|upper}}</h6>
+            <!-- <p>Perfil del Alumno {{obj.nombres|upper}} {{obj.apellidos|upper}}</p> -->
+            <p>Rut: {{obj.rut}}</p>
+            <p>id: {{obj.id}}</p>
+        </div>
+    </div>
+    <hr>
     {% if obj1 %}
         {% for post in obj1 %}
-            <ul>
-            <li>{{post.content}}</li>
-            </ul>
+        <div class="media ml-5">
+            <img class="align-self-start mr-3 mb-4" src="https://linguisticauprrp.files.wordpress.com/2018/11/perfil-genc3a9rico.png" width="60px" height="60px">
+            <div class="media-body">
+                <h6 class="mt-0">{{request.user}}</h6>
+                <p>{{post.content}}</p>
+            </div>
+        </div>
         {% endfor %}
+   
+ 
     {% else %}
         No existe contenido registrado
     {% endif %}
-    
 <div class="row text-center mb-2">
     <div class="col-md-4 mx-auto col-10">
         <form method="POST" action="{% url 'alumno:agregar' obj.id %}" class="form" id="formTweetInput">
