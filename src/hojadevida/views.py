@@ -41,6 +41,7 @@ class Content_list(ListView):
     model = Curriculum
     ordering = ['-created']
     template_name = 'list_content.html'
+    paginate_by = 10
 
 def content_list_view(request, *args, **kwargs):
     if request.user.id == 1:

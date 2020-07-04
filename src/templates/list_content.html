@@ -9,9 +9,9 @@
     
     {% if object_list %}
     {% for post in object_list %}
-        <ul>
-        <li>{{post.content}}</li>
-        </ul>
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action">{{post.content}} escrito por <b>{{post.user}}</b></a>
+     </div>
     {% endfor %}
     {% else %}
     <h2>No existe contenido registrado</h2>
