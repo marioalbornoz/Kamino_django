@@ -47,7 +47,7 @@ def content_list_view(request, *args, **kwargs):
     if request.user.id == 1:
         print("you are admin")
         qs = Curriculum.objects.all()
-        notebook_list = [{"alumno_id":x.student.id ,"content_id": x.id, "content": x.content,"user_id":x.user_id , "created" :x.created, "updated": x.updated} for x in qs]
+        notebook_list = [{"alumno":x.student.nombres+" "+x.student.apellidos ,"alumno_id":x.student.id ,"content_id": x.id, "content": x.content,"usuario":x.user.username,"user_id":x.user_id , "created" :x.created, "updated": x.updated} for x in qs]
         data = {
             'isUser': False,
             'response': notebook_list
