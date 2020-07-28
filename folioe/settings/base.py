@@ -101,5 +101,9 @@ STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
+
+
 LOGIN_REDIRECT_URL = reverse_lazy('alumno:lista')
 LOGOUT_REDIRECT_URL = '/'

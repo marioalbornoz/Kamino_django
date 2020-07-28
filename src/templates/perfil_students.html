@@ -8,7 +8,7 @@
     </div>
     <div class="media ml-5">
         <img class="align-self-start mr-3 mb-4"
-            src="https://linguisticauprrp.files.wordpress.com/2018/11/perfil-genc3a9rico.png" width="140px" height="140px">
+            src="{% static 'base/img/perfil.png' %}" width="140px" height="140px">
         <div class="media-body">
             <h6 class="mt-0">{{obj.nombres|upper}} {{obj.apellidos|upper}}</h6>
             <!-- <p>Perfil del Alumno {{obj.nombres|upper}} {{obj.apellidos|upper}}</p> -->
@@ -20,7 +20,7 @@
     {% if obj1 %}
         {% for post in obj1 %}
         <div class="media ml-5">
-            <img class="align-self-start mr-3 mb-4" src="https://linguisticauprrp.files.wordpress.com/2018/11/perfil-genc3a9rico.png" width="60px" height="60px">
+            <img class="align-self-start mr-3 mb-4" src="{% static 'base/img/perfil.png' %}" width="60px" height="60px">
             <div class="media-body">
                 <h6 class="mt-0">{{post.user.username}}</h6>
                 <p>{{post.content}}</p>
